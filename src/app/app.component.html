@@ -1,0 +1,126 @@
+<div class="layout">
+  <header class="header">
+    <button
+      pButton
+      (click)="visibleSidebar = !visibleSidebar"
+      style="
+        background-color: #006862;
+        color: white;
+        border-radius: 0;
+        padding: 0 20px;
+      "
+    >
+      <i class="pi pi-bars" style="font-size: 2.5rem"></i>
+    </button>
+    <img src="assets/logo.png" alt="Image description" width="250px" />
+  </header>
+  <div class="content-container">
+    <div class="sidebar" [class.active]="visibleSidebar">
+      <ul>
+        <li [class.active]="activeMenu === 'home'">
+          <a (click)="toggleSubMenu('homeSubMenu'); $event.preventDefault()">
+            <i class="pi pi-palette" style="font-size: 1.5rem"></i>
+            <h4>Chemical Control</h4>
+            <i class="pi pi-sort-down-fill" style="font-size: 1.5rem"></i>
+          </a>
+        </li>
+        <div
+          *ngIf="activeSubMenu === 'homeSubMenu'"
+          class="submenu"
+          [class.active]="activeSubMenu === 'homeSubMenu'"
+        >
+          <li>
+            <a
+              routerLink="/about/submenu1"
+              [class.active]="router.url.includes('/about/submenu1')"
+              >SubMenu1</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/about/submenu2"
+              [class.active]="router.url.includes('/about/submenu2')"
+              >SubMenu2</a
+            >
+          </li>
+        </div>
+
+        <li [class.active]="activeMenu === 'chemical-request'">
+          <a (click)="toggleSubMenu('requestSubMenu'); $event.preventDefault()">
+            <i class="pi pi-envelope" style="font-size: 1.5rem"></i>
+            <h4>Chemical Request</h4>
+            <i class="pi pi-sort-down-fill" style="font-size: 1.5rem"></i>
+          </a>
+        </li>
+        <div
+          *ngIf="activeSubMenu === 'requestSubMenu'"
+          class="submenu"
+          [class.active]="activeSubMenu === 'requestSubMenu'"
+        >
+          <li>
+            <a
+              routerLink="/chemical-request/request"
+              [class.active]="router.url.includes('/chemical-request/request')"
+              >Request</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/chemical-request/history"
+              [class.active]="router.url.includes('/chemical-request/history')"
+              >History</a
+            >
+          </li>
+        </div>
+
+        <li [class.active]="activeMenu === 'master'">
+          <a routerLink="/master">
+            <i class="pi pi-folder-open" style="font-size: 1.5rem"></i>
+            <h4>Master List</h4>
+          </a>
+        </li>
+
+        <li [class.active]="activeMenu === 'checklist'">
+          <a
+            (click)="toggleSubMenu('checklistSubMenu'); $event.preventDefault()"
+          >
+            <i class="pi pi-calendar" style="font-size: 1.5rem"></i>
+            <h4>Storage Checklist</h4>
+            <i class="pi pi-sort-down-fill" style="font-size: 1.5rem"></i>
+          </a>
+          <ul
+            *ngIf="activeSubMenu === 'checklistSubMenu'"
+            class="submenu"
+            [class.active]="activeSubMenu === 'checklistSubMenu'"
+          >
+            <li>
+              <a
+                routerLink="/checklist/submenu1"
+                [class.active]="router.url.includes('/checklist/submenu1')"
+                >Submenu 1</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/checklist/submenu2"
+                [class.active]="router.url.includes('/checklist/submenu2')"
+                >Submenu 2</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <p-breadcrumb class="max-w-full" [model]="items">
+        <ng-template pTemplate="item" let-item>
+          <i [class]="item.icon"></i>&nbsp;&nbsp;{{ item.label }}
+        </ng-template>
+        <ng-template pTemplate="separator"> | </ng-template>
+      </p-breadcrumb>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

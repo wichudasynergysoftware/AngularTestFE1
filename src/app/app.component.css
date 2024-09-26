@@ -1,0 +1,150 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+  padding: 0;
+  height: 85px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: relative;
+}
+
+.header button {
+  margin-right: 16px;
+  height: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 300px;
+  display: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sidebar.active {
+  display: block;
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+  transition: margin-left 0.3s ease;
+}
+
+.content.expanded {
+  margin-left: 250px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin: 0;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.item {
+  text-align: center;
+}
+
+ul li.active a {
+  background-color: #006862;
+  color: white;
+}
+
+ul li a:hover {
+  background-color: #006862;
+  color: white;
+  cursor: pointer;
+}
+
+.submenu {
+  background-color: #fff !important; /* Set background color to white */
+  padding: 0; /* Adjust as necessary */
+  list-style: none; /* Remove bullets */
+  margin: 0; /* Remove default margins */
+}
+
+.submenu li {
+  border-bottom: 1px solid #ccc;
+}
+
+.submenu li:last-child {
+  border-bottom: none; /* Remove bottom border from the last item */
+}
+
+.submenu li a {
+  display: block; /* Make the entire area clickable */
+  padding: 20px 10px; /* Adjust padding as needed */
+  text-decoration: none; /* Remove underline from links */
+  color: #000; /* Text color for submenu items */
+  transition: background-color 0.3s; /* Smooth background color transition */
+  text-align: center;
+}
+
+.submenu li a:hover {
+  /* background-color: #5d7170; */
+  color: white !important;
+}
+
+/* ul li.active > a {
+  color: rgb(255, 255, 255); 
+} */
+.sidebar ul li a.active {
+  color: #006862;
+}
+
+:host ::ng-deep .p-breadcrumb {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: black !important;
+}
+
+:host ::ng-deep .p-menuitem-link {
+  color: black !important;
+}
+
+.content .container {
+  background-color: white;
+  margin-top: 20px;
+  position: relative;
+  padding: 10px 20px;
+  height: 80%;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,191 @@
+@if (currentStep == 1) {
+<div class="step-list">
+  <div>
+    <i class="pi pi-file-plus" style="font-size: 100px; color: #006862"></i>
+    <p style="font-size: 18px; color: #006862; font-weight: 600">New Issue</p>
+  </div>
+  <i
+    class="pi pi-arrow-circle-right"
+    style="font-size: 50px; color: #006862"
+  ></i>
+  <div>
+    <i class="pi pi-file-check" style="font-size: 100px; color: #bebebe"></i>
+    <p style="font-size: 18px; font-weight: 600; color: #bebebe">Reviewing</p>
+  </div>
+  <i
+    class="pi pi-arrow-circle-right"
+    style="font-size: 50px; color: #bebebe"
+  ></i>
+  <div>
+    <i class="pi pi-file" style="font-size: 100px; color: #bebebe"></i>
+    <p style="font-size: 18px; font-weight: 600; color: #bebebe">Approving</p>
+  </div>
+</div>
+<div class="grid-container">
+  <div>
+    <h4>Requester</h4>
+    <h4>Teerapan Jumroonwat</h4>
+  </div>
+  <div>
+    <h4>Requester</h4>
+    <h4>Management Representative (MR)</h4>
+  </div>
+  <div>
+    <h4>Requester</h4>
+    <h4>21/03/2024</h4>
+  </div>
+</div>
+<div class="grid-container1">
+  <div>
+    <h4>Chemical Name</h4>
+    <input type="text" pInputText class="search-input" name="search" />
+  </div>
+  <div>
+    <h4>Objective</h4>
+    <input type="text" pInputText class="search-input" name="search" />
+  </div>
+</div>
+<div class="grid-container2">
+  <div>
+    <h4>Manufacturing / Importing / Distributing</h4>
+    <input type="text" pInputText class="search-input" name="search" />
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <input type="text" pInputText class="search-input" name="search" />
+  </div>
+</div>
+<div class="grid-container3">
+  <div>
+    <h4>Starting Date</h4>
+    <input type="text" pInputText class="search-input" name="search" />
+  </div>
+  <div>
+    <h4>Department</h4>
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="name"
+      placeholder="All"
+    />
+  </div>
+  <div>
+    <h4>Remark</h4>
+    <input type="text" pInputText class="search-input" name="search" />
+  </div>
+</div>
+<div style="margin-bottom: 30px; color: black">
+  <h4>SDS File Attach</h4>
+  <div class="search-container">
+    <i class="pi pi-upload search-icon"></i>
+    <input
+      type="text"
+      pInputText
+      class="search-input"
+      placeholder="Attach files"
+      name="search"
+    />
+  </div>
+</div>
+} @else if (currentStep == 2) {
+<div class="step-list">
+  <div>
+    <i class="pi pi-file-plus" style="font-size: 100px; color: #006862"></i>
+    <p style="font-size: 18px; color: #006862; font-weight: 600">New Issue</p>
+  </div>
+  <i
+    class="pi pi-arrow-circle-right"
+    style="font-size: 50px; color: #006862"
+  ></i>
+  <div>
+    <i class="pi pi-file-check" style="font-size: 100px; color: #006862"></i>
+    <p style="font-size: 18px; font-weight: 600; color: #006862">Reviewing</p>
+  </div>
+  <i
+    class="pi pi-arrow-circle-right"
+    style="font-size: 50px; color: #006862"
+  ></i>
+  <div>
+    <i class="pi pi-file" style="font-size: 100px; color: #bebebe"></i>
+    <p style="font-size: 18px; font-weight: 600; color: #bebebe">Approving</p>
+  </div>
+</div>
+<div class="grid-container1">
+  <div>
+    <h4>Approver</h4>
+  </div>
+  <div>
+    <h4>User’s Department</h4>
+  </div>
+</div>
+<div class="grid-container1">
+  <div>
+    <h4>Alongkorn</h4>
+  </div>
+  <div>
+    <h4>Safety (SE)</h4>
+  </div>
+</div>
+<div style="margin-bottom: 30px">
+  <h4>Comment</h4>
+  <input type="text" pInputText class="search-input" name="search" />
+</div>
+} @else {
+<div class="step-list">
+  <div>
+    <i class="pi pi-file-plus" style="font-size: 100px; color: #006862"></i>
+    <p style="font-size: 18px; color: #006862; font-weight: 600">New Issue</p>
+  </div>
+  <i
+    class="pi pi-arrow-circle-right"
+    style="font-size: 50px; color: #006862"
+  ></i>
+  <div>
+    <i class="pi pi-file-check" style="font-size: 100px; color: #006862"></i>
+    <p style="font-size: 18px; font-weight: 600; color: #006862">Reviewing</p>
+  </div>
+  <i
+    class="pi pi-arrow-circle-right"
+    style="font-size: 50px; color: #006862"
+  ></i>
+  <div>
+    <i class="pi pi-file" style="font-size: 100px; color: #006862"></i>
+    <p style="font-size: 18px; font-weight: 600; color: #006862">Approving</p>
+  </div>
+</div>
+<div class="grid-container1">
+  <div>
+    <h4>Approver</h4>
+  </div>
+  <div>
+    <h4>User’s Department</h4>
+  </div>
+</div>
+<div class="grid-container1">
+  <div>
+    <h4>Alongkorn</h4>
+  </div>
+  <div>
+    <h4>Safety (SE)</h4>
+  </div>
+</div>
+<div>
+  <h4>Comment</h4>
+  <input type="text" pInputText class="search-input" name="search" />
+</div>
+<div class="grid-container1" style="margin-bottom: 30px">
+  <div>
+    <h4>Legal Submission</h4>
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="name"
+      placeholder="Yes"
+    />
+  </div>
+  <div>
+    <h4>Description</h4>
+    <input type="text" pInputText class="search-input" name="search" />
+  </div>
+</div>
+}

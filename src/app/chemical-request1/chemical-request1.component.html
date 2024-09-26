@@ -1,0 +1,134 @@
+<div class="header-container">
+  <div class="grid-container">
+    <div>
+      <h3>Chemical Request</h3>
+      <p p style="margin-top: 10px">Total n items</p>
+    </div>
+    <div>
+      <p p style="margin-bottom: 10px">View</p>
+      <p-dropdown
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        placeholder="My Request"
+      />
+    </div>
+    <div>
+      <p p style="margin-bottom: 10px">Department</p>
+      <p-dropdown
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        placeholder="All"
+      />
+    </div>
+    <div>
+      <p p style="margin-bottom: 10px">Status</p>
+      <p-dropdown
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        placeholder="All"
+      />
+    </div>
+  </div>
+  <div class="last-div">
+    <p-button class="setting-user" label="Setting User" [rounded]="true" />
+  </div>
+</div>
+<div class="search-container">
+  <i class="pi pi-search search-icon"></i>
+  <input
+    type="text"
+    pInputText
+    class="search-input"
+    placeholder="Search"
+    name="search"
+  />
+</div>
+<div class="table-container">
+  <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Chemical name</th>
+        <th>Department</th>
+        <th>Objective</th>
+        <th>Requester</th>
+        <th>Requesting date</th>
+        <th>Starting date</th>
+        <th>Status</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.department }}</td>
+        <td>{{ product.objective }}</td>
+        <td>{{ product.requester }}</td>
+        <td>{{ product.requestingDate }}</td>
+        <td>{{ product.startingDate }}</td>
+        <td>
+          <p-button
+            class="active-status"
+            [label]="product.status"
+            [rounded]="true"
+          />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div class="card flex justify-content-center">
+  <p-dialog
+    header="New Chemical Requesting"
+    [modal]="true"
+    [(visible)]="visible"
+    [style]="{ width: '50rem', 'min-height': '730px', position: 'relative' }"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  >
+    <app-add-data [currentStep]="currentStep" />
+    <div style="position: absolute; right: 0; bottom: 0; padding: 20px">
+      <div class="button-group">
+        <p-button
+          label="Close"
+          [outlined]="true"
+          severity="secondary"
+          [rounded]="true"
+          (onClick)="close()"
+        />
+        <p-button
+          label="Reject"
+          [outlined]="false"
+          [rounded]="true"
+          severity="danger"
+        />
+        @if (currentStep != 3) {
+        <p-button
+          class="approve-btn"
+          label="Send"
+          [outlined]="false"
+          [rounded]="true"
+          (onClick)="nextStep()"
+        />
+        }@else {
+        <p-button
+          class="approve-btn"
+          label="Approve"
+          [outlined]="false"
+          [rounded]="true"
+          (onClick)="close()"
+        />
+        }
+      </div>
+    </div>
+  </p-dialog>
+</div>
+<div class="btn-container">
+  <p-button
+    class="btn-add"
+    icon="pi pi-plus"
+    [rounded]="true"
+    size="large"
+    (onClick)="showDialog()"
+  />
+</div>
